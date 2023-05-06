@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 
  interface brewery{
     
@@ -23,25 +23,37 @@ import axios from 'axios'
 
  function FectchCompany() {
     const [breweries, setBreweries]=useState<brewery[]>();
+    const [error,setError]=useState("");
+    const [loading, setLoading]=useState(true);
          useEffect(() => {
-    const fetchData = async () => {
+      const fetchData = async () => {
+        try{
       const response = await axios.get<brewery[]>('https://api.openbrewerydb.org/breweries');
       setBreweries(response.data);
-    };
-
-    fetchData();
+      setLoading(false);
+                        }    
+                        catch(error: any) {
+                                setError(error.message);
+                                setLoading(false)   
+                            }}
+   fetchData();                
   }, []);
-return (
-    <div>
-    {breweries?.map((brewery) => (
-        <div key={brewery.id}>
-          <h2>name : {brewery.name}</h2>
-          <p>city : {brewery.city}</p>  
-          <p> state : {brewery.state_province}</p>
-        </div>
-      ))}
-   </div>
-  )
+  if (error.length>0) {
+    return <div>Error: {error}</div>;
+  } else if (loading) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <ul>
+        {breweries?.map(item => (
+          <li key={item.id}>
+             name= {item.name} 
+              type=({item.brewery_type})
+          </li>
+        ))}
+      </ul>
+    );
+  }
 }
 
 export default FectchCompany
