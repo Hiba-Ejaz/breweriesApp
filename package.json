@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Fetch, display, and search for brewery companies from the given API endpoint, using React and TypeScript",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

@@ -1,8 +1,11 @@
 import React from 'react'
+import FectchCompany from './components/FectchCompany'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+    <FectchCompany></FectchCompany>
+    </div>
   )
 }
 
