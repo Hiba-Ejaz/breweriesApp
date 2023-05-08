@@ -1,4 +1,3 @@
-
 .breweries-container {
   display: flex;
   flex-wrap: wrap;
@@ -16,23 +15,13 @@
 
 .breweries-container__breweries-list__breweries-item {
   width: calc(33.33% - 10px);
-
   margin-bottom: 20px;
- 
-    
-    width: 10rem;
-    height:8rem;
-    padding: 2rem;
-    border: 2px grey solid ;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 2rem;
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  width: 10rem;
+  height: 8rem;
+  padding: 2rem;
+  border: 2px grey solid;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 2rem;
+}
+
+/*# sourceMappingURL=Home.css.map */

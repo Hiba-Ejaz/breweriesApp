@@ -5,6 +5,7 @@ import { Brewery } from '../components/interface';
 import {  debounce } from '@mui/material';
 import fetchDataFromApiFunction from '../components/fetchDataFromApiFunction';
 import { Link, useParams } from 'react-router-dom';
+import "./Breweries.css";
 
 interface Props {
     breweries: Brewery[];
@@ -26,13 +27,36 @@ function Breweries({breweries}: Props) {
   },[search]);
   return (
     <>
-    SearchBar
     <SearchIcon className="searchBarIcon"/>
     <input type="text" placeholder='Search By Name' onChange={handleChangeListener} />
     <h2>filtered results</h2>
-    <ul>
+    <div className="breweries--container">
+    <table className="breweries--container__breweries-list">
+          {filteredItems?.map((brewery) => (
+            <tr>  <li key={brewery.id}  className="breweries--container__breweries-list__breweries-item">
+            <h2>{brewery.name}</h2>
+            <p>{brewery.brewery_type}</p>
+            <p>{brewery.street}</p>
+            <p>{brewery.city}, {brewery.state} {brewery.postal_code}</p>
+            <p>{brewery.country}</p>
+            <p>{brewery.phone}</p>
+            <a href={brewery.website_url}>{brewery.website_url}</a>
+            <div>
+            <button><Link to={`/details/${parseInt(brewery.id)}`}>DETAILS &#8594;</Link></button>
+            </div>
+          </li>
+         </tr>
+           
+          ))}
+          </table>
+          </div>
+          
+          </>
+  )
+    {/* <div className='breweries--container'>  
+      <ul className="breweries--container__breweries-list">
     {filteredItems?.map(brewery => (
-         <li key={brewery.id}>
+         <li key={brewery.id}  className="breweries--container__breweries-list">
           <h2>{brewery.name}</h2>
           <p>{brewery.brewery_type}</p>
           <p>{brewery.street}</p>
@@ -44,10 +68,10 @@ function Breweries({breweries}: Props) {
           <button><Link to={`/details/${parseInt(brewery.id)}`}>DETAILS &#8594;</Link></button>
           </div>
         </li>
-    ))}
-    </ul>
-</>
-  )
+    ))} */}
+    {/* </ul> */}
+
+  
 }
 const Breweriess=fetchDataFromApiFunction( Breweries, `https://api.openbrewerydb.org/breweries`);
 

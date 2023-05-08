@@ -5,6 +5,12 @@ function Header() {
   return (
     <nav>
       <ul>
+      <li className="left">
+          <h1>Free and open-source brewery data</h1>
+        </li>
+      </ul>
+      <ul className="right">
+       
         <li>
           <Link to="/">Home</Link>
         </li>

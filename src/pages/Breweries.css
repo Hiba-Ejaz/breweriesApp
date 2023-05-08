@@ -1,0 +1,27 @@
+.breweries--container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breweries--container__breweries-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breweries--container__breweries-list__breweries-item {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  width: 18rem;
+  height: 20rem;
+  padding: 2rem;
+  border: 2px grey solid;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 2rem;
+}
+
+/*# sourceMappingURL=Breweries.css.map */

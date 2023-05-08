@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 import { Brewery } from "../components/interface";
-import "./Home.scss";
+import "./Home.css";
+import { Link } from "react-router-dom";
 function Home() {
   const [breweries, setBreweries] = useState<Brewery[]>();
   const [error, setError] = useState("");
@@ -32,16 +33,17 @@ function Home() {
     console.log("loading");
     return (
         <div className="breweries-container">
-       <ul className="breweries-container__breweries-list">
+       <table className="breweries-container__breweries-list">
           {breweries?.map((item) => (
-            
-            <li className="breweries-container__breweries-list__breweries-item" key={item.id}>
-              name= {item.name}
-              type=({item.brewery_type})
-            </li>
+            <tr> <li className="breweries-container__breweries-list__breweries-item" >
+            name= {item.name}
+            type=({item.brewery_type})
+            <button><Link to={`/details/${parseInt(item.id)}`}>DETAILS &#8594;</Link></button>
+          </li>
+         </tr>
            
           ))}
-        </ul>
+        </table>
       </div>
     );
   }
