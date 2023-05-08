@@ -11,11 +11,16 @@ function FetchDataWithLoading({breweries}: Props){
     <div>
     <SearchBar/>
 <ul>
-{breweries?.map(p => (
-  <li key={p.id}>
-     name= {p.name} 
-      type=({p.brewery_type})
-  </li>
+{breweries?.map(brewery => (
+          <li key={brewery.id}>
+          <h2>{brewery.name}</h2>
+          <p>{brewery.brewery_type}</p>
+          <p>{brewery.street}</p>
+          <p>{brewery.city}, {brewery.state} {brewery.postal_code}</p>
+          <p>{brewery.country}</p>
+          <p>{brewery.phone}</p>
+          <a href={brewery.website_url}>{brewery.website_url}</a>
+        </li>
 ))}
 </ul>
 </div>
