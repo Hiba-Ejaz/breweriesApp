@@ -6,6 +6,8 @@ import {  Button, TextField, debounce } from '@mui/material';
 import fetchDataFromApiFunction from '../components/fetchDataFromApiFunction';
 import { Link, useParams } from 'react-router-dom';
 import "./Breweries.css";
+import { ThemeProvider } from '@mui/material';
+import theme from "../components/customTheme";
 
 interface Props {
     breweries: Brewery[];
@@ -26,6 +28,7 @@ function Breweries({breweries}: Props) {
         setFilteredItems(breweries?.filter(item=>item.name.toLowerCase().includes(search.toLowerCase())));                               
   },[search]);
   return (
+    <ThemeProvider theme={theme}>
     <div className="searchByNameComponent">
     <SearchIcon className="searchByNameComponent__searchBarIcon"/>
     <TextField label="Search By Name" id="searchByNameComponent__searchField" placeholder='Search Brewery By Name' onChange={handleChangeListener} required/>
@@ -34,8 +37,8 @@ function Breweries({breweries}: Props) {
     <table className="searchByNameComponent__breweries--container__breweries-list">
           {filteredItems?.map((brewery) => (
             <tr>  <li key={brewery.id}  className="breweries--container__breweries-list__breweries-item">
-            <h2>{brewery.name}</h2>
-            <p>{brewery.brewery_type}</p>
+            <h2 color="primary">{brewery.name}</h2>
+            <p color='text'>{brewery.brewery_type}</p>
             <p>{brewery.street}</p>
             <p>{brewery.city}, {brewery.state} {brewery.postal_code}</p>
             <p>{brewery.country}</p>
@@ -53,6 +56,7 @@ function Breweries({breweries}: Props) {
           </table>
           </div>
           </div>
+          </ThemeProvider>
   )
  
 }

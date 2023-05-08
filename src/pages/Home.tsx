@@ -37,9 +37,11 @@ function Home() {
        <table className="breweries-container__breweries-list">
           {breweries?.map((item) => (
             <tr> <li className="breweries-container__breweries-list__breweries-item" >
-            name= {item.name}
-            type=({item.brewery_type})
+            <p>name= {item.name}</p>
+           <p> type=({item.brewery_type})</p>
+            <div>
             <Button size="small" sx={{ backgroundColor: '#333' }} className="details__btn" variant="contained" color="secondary"><Link to={`/details/${parseInt(item.id)}`}>DETAILS &#8594;</Link></Button>
+            </div>
             </li>
         </tr>   
           ))}

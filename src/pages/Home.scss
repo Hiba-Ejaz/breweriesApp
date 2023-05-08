@@ -4,30 +4,26 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-}
 
-.breweries-container__breweries-list {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    &__breweries-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
 
-.breweries-container__breweries-list__breweries-item {
-  width: calc(33.33% - 10px);
-
-  margin-bottom: 20px;
- 
-    
-    width: 10rem;
-    height:8rem;
-    padding: 2rem;
-    border: 2px grey solid ;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 2rem;
-  }
-
+      &__breweries-item {
+       width: calc(33.33% - 10px);
+      margin-bottom: 20px;
+      padding: 1rem;
+      width: 15rem;
+      height:13rem;
+       padding: 2rem;
+       border: 2px grey solid ;
+       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+       border-radius: 2rem;
+             }
+            }}
 .details__btn{
 padding:1em;
 margin-top: 1rem;
