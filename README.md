@@ -1,25 +1,16 @@
-# Breweries App
+#Brewery Finder App
 
-Fetch, display, and search for brewery companies from the given API endpoint, using React and TypeScript
+This is a React-based web application that uses an open-source Brewery API to fetch and display information about various breweries. The app includes functionality to search for breweries by name and view their details.
 
-## Requirements
+Functionality
+This application utilizes various technologies and techniques to provide the desired functionality:
 
-1. Check the documentation at [https://www.openbrewerydb.org/documentation](https://www.openbrewerydb.org/documentation) Fetch and display information of all the companies.
+React Router: Used to enable client-side routing and provide seamless navigation between different pages in the app.
 
-2. Have proper display and routing that user can switch to/back from specific company's detailed page
+Higher-Order Component (HOC): Created to handle data fetching from the API, which is then passed down to other components as props.
 
-3. Create search component to enable user to input text and search for companies by name.
+Debouncing: Implemented to avoid excessive API calls during user input in the search bar.
 
-4. Use MaterialUI to make your design more appealing and responsive
+Material UI: Used for styling and creating a more interactive user interface.
 
-5. Implement performance optimization where applicable
-
-6. Deploy your application and rewrite README file
-
-## Optional
-
-7. Use the queries listed in the documentation to sort and limit the returned data and build pagination feature.
-
-8. Create a contact form so that user can send question along with their contact information. 
-
-9. Use Google-login option to pre-fill the contact form for user.
+ link to deployement [https://hiba-ejaz.github.io/breweries]
