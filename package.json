@@ -1,4 +1,5 @@
 {
+  "homepage":"http://Hiba-Ejaz.github.io/fs15_8-breweries-app",
   "name": "breweries",
   "version": "0.1.0",
   "private": true,
@@ -27,6 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -52,5 +55,8 @@
   "description": "Fetch, display, and search for brewery companies from the given API endpoint, using React and TypeScript",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
 }
