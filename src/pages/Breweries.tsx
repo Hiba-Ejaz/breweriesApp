@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import { Brewery } from '../components/interface';
-import {  debounce } from '@mui/material';
+import {  Button, TextField, debounce } from '@mui/material';
 import fetchDataFromApiFunction from '../components/fetchDataFromApiFunction';
 import { Link, useParams } from 'react-router-dom';
 import "./Breweries.css";
@@ -26,12 +26,12 @@ function Breweries({breweries}: Props) {
         setFilteredItems(breweries?.filter(item=>item.name.toLowerCase().includes(search.toLowerCase())));                               
   },[search]);
   return (
-    <>
-    <SearchIcon className="searchBarIcon"/>
-    <input type="text" placeholder='Search By Name' onChange={handleChangeListener} />
+    <div className="searchByNameComponent">
+    <SearchIcon className="searchByNameComponent__searchBarIcon"/>
+    <TextField label="Search By Name" id="searchByNameComponent__searchField" placeholder='Search Brewery By Name' onChange={handleChangeListener} required/>
     <h2>filtered results</h2>
-    <div className="breweries--container">
-    <table className="breweries--container__breweries-list">
+    <div className="searchByNameComponent__breweries--container">
+    <table className="searchByNameComponent__breweries--container__breweries-list">
           {filteredItems?.map((brewery) => (
             <tr>  <li key={brewery.id}  className="breweries--container__breweries-list__breweries-item">
             <h2>{brewery.name}</h2>
@@ -42,36 +42,19 @@ function Breweries({breweries}: Props) {
             <p>{brewery.phone}</p>
             <a href={brewery.website_url}>{brewery.website_url}</a>
             <div>
-            <button><Link to={`/details/${parseInt(brewery.id)}`}>DETAILS &#8594;</Link></button>
+            <Button  sx={{ backgroundColor: "#333" ,
+                       "&:hover":{
+                                  backgroundColor:"grey"                   
+            }}} className="details__btn" variant="contained" color="secondary"><Link to={`/details/${parseInt(brewery.id)}`}>DETAILS &#8594;</Link></Button>
             </div>
           </li>
          </tr>
-           
-          ))}
+            ))}
           </table>
           </div>
-          
-          </>
-  )
-    {/* <div className='breweries--container'>  
-      <ul className="breweries--container__breweries-list">
-    {filteredItems?.map(brewery => (
-         <li key={brewery.id}  className="breweries--container__breweries-list">
-          <h2>{brewery.name}</h2>
-          <p>{brewery.brewery_type}</p>
-          <p>{brewery.street}</p>
-          <p>{brewery.city}, {brewery.state} {brewery.postal_code}</p>
-          <p>{brewery.country}</p>
-          <p>{brewery.phone}</p>
-          <a href={brewery.website_url}>{brewery.website_url}</a>
-          <div>
-          <button><Link to={`/details/${parseInt(brewery.id)}`}>DETAILS &#8594;</Link></button>
           </div>
-        </li>
-    ))} */}
-    {/* </ul> */}
-
-  
+  )
+ 
 }
 const Breweriess=fetchDataFromApiFunction( Breweries, `https://api.openbrewerydb.org/breweries`);
 

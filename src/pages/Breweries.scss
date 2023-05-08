@@ -1,12 +1,18 @@
-
-.breweries--container {
+.searchByNameComponent{
+    margin-top: 2rem ;
+    padding-top:2rem;
+    margin-left:1rem;
+    
+    
+}
+.searchByNameComponent__breweries--container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
   
-  .breweries--container__breweries-list {
+  .searchByNameComponent__breweries--container__breweries-list {
     display: flex;
     flex-wrap: wrap;
     list-style: none;

@@ -9,7 +9,7 @@ import {
 import React, { useCallback, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { Brewery } from "../components/interface";
-import { debounce } from "@mui/material";
+import { Button, debounce } from "@mui/material";
 import fetchDataFromApiFunction from "../components/fetchDataFromApiFunction";
 
 interface Props {
@@ -72,8 +72,8 @@ function Details({ breweries }: Props) {
           <li></li>
         </ul>
       </nav>
-      <button onClick={() => navigate(-1)}>BACK</button>
-      <button onClick={() => navigate("./breweries")}>  list All Breweries </button>
+      <Button variant="contained" sx={{backgroundColor:"#333"}} className="details__btn" onClick={() => navigate(-1)}>BACK</Button>
+      <Button className="details__btn" sx={{backgroundColor:"#333"}} onClick={() => navigate("./breweries")}>  list All Breweries </Button>
       <Link to="/Home">HOME</Link>
     </div>
   );

@@ -1,17 +1,11 @@
-.searchByNameComponent {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  margin-left: 1rem;
-}
-
-.searchByNameComponent__breweries--container {
+.breweries-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 
-.searchByNameComponent__breweries--container__breweries-list {
+.breweries-container__breweries-list {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -19,15 +13,21 @@
   margin: 0;
 }
 
-.breweries--container__breweries-list__breweries-item {
+.breweries-container__breweries-list__breweries-item {
   width: calc(33.33% - 10px);
   margin-bottom: 20px;
-  width: 18rem;
-  height: 20rem;
+  width: 10rem;
+  height: 8rem;
   padding: 2rem;
   border: 2px grey solid;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 2rem;
 }
 
-/*# sourceMappingURL=Breweries.css.map */
+.details__btn {
+  padding: 1em;
+  margin: 1em;
+  color: #333;
+}
+
+/*# sourceMappingURL=Home.css.map */

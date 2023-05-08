@@ -3,6 +3,7 @@ import axios, { AxiosError } from "axios";
 import { Brewery } from "../components/interface";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 function Home() {
   const [breweries, setBreweries] = useState<Brewery[]>();
   const [error, setError] = useState("");
@@ -38,10 +39,9 @@ function Home() {
             <tr> <li className="breweries-container__breweries-list__breweries-item" >
             name= {item.name}
             type=({item.brewery_type})
-            <button><Link to={`/details/${parseInt(item.id)}`}>DETAILS &#8594;</Link></button>
-          </li>
-         </tr>
-           
+            <Button size="small" sx={{ backgroundColor: '#333' }} className="details__btn" variant="contained" color="secondary"><Link to={`/details/${parseInt(item.id)}`}>DETAILS &#8594;</Link></Button>
+            </li>
+        </tr>   
           ))}
         </table>
       </div>
