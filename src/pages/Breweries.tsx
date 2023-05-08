@@ -1,3 +1,4 @@
+//Search By Name
 import React, { useCallback, useEffect, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import { Brewery } from '../components/interface';
@@ -5,17 +6,14 @@ import {  debounce } from '@mui/material';
 import fetchDataFromApiFunction from '../components/fetchDataFromApiFunction';
 import { Link, useParams } from 'react-router-dom';
 
-
 interface Props {
     breweries: Brewery[];
   }
 
 function Breweries({breweries}: Props) {
-    //const [search,setSearch]=useState<searchProps>({ search: '', setSearch: () => {} });
     const [search,setSearch]=useState<string>("");
     const [filteredItems, setFilteredItems]=useState<Brewery[]>();  
-
-    const handleChangeListener=(e:React.ChangeEvent<HTMLInputElement>)=>{
+     const handleChangeListener=(e:React.ChangeEvent<HTMLInputElement>)=>{
         const text=e.target.value;
         memoizedCallback(text);
       }
@@ -34,7 +32,6 @@ function Breweries({breweries}: Props) {
     <h2>filtered results</h2>
     <ul>
     {filteredItems?.map(brewery => (
-    
          <li key={brewery.id}>
           <h2>{brewery.name}</h2>
           <p>{brewery.brewery_type}</p>
@@ -47,12 +44,11 @@ function Breweries({breweries}: Props) {
           <button><Link to={`/details/${parseInt(brewery.id)}`}>DETAILS &#8594;</Link></button>
           </div>
         </li>
-    
     ))}
-    
     </ul>
 </>
   )
 }
 const Breweriess=fetchDataFromApiFunction( Breweries, `https://api.openbrewerydb.org/breweries`);
+
 export default Breweriess
