@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Brewery Finder App
 
 This is a React-based web application that uses an open-source Brewery API to fetch and display information about various breweries. The app includes functionality to search for breweries by name and view their details.
@@ -14,3 +15,6 @@ Debouncing: Implemented to avoid excessive API calls during user input in the se
 Material UI: Used for styling and creating a more interactive user interface.
 
  link to deployement [https://hiba-ejaz.github.io/fs15_8-breweries-app/] https://hiba-ejaz.github.io/fs15_8-breweries-app/mm
+=======
+# breweriesApp
+>>>>>>> public/main
